@@ -2,10 +2,12 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -20,38 +22,56 @@
     <children>
         <BorderPane fx:id="borderPane" layoutX="-2.0" layoutY="-3.0" prefHeight="597.0" prefWidth="908.0">
             <top>
-                <MenuBar fx:id="menuBar" prefHeight="28.0" prefWidth="913.0" styleClass="menu_bar" BorderPane.alignment="CENTER">
-                    <menus>
-                        <Menu mnemonicParsing="false" styleClass="menu_options" text="File">
-                            <items>
-                                <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#addRecord" styleClass="menu_items" text="New" />
-                                <MenuItem fx:id="ChangePic" mnemonicParsing="false" onAction="#showImage" styleClass="menu_items" text="Change Pic" />
-                                <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOut" styleClass="menu_items" text="Log out" />
-                                <MenuItem mnemonicParsing="false" onAction="#closeApplication" styleClass="menu_items" text="Exit Program" />
-                            </items>
-                        </Menu>
-                  <Menu mnemonicParsing="false" styleClass="menu_options" text="Edit">
-                     <items>
-                        <MenuItem fx:id="editItem" mnemonicParsing="true" styleClass="menu_items" text="_Edit       Ctrl+E" />
-                        <MenuItem fx:id="deleteItem" mnemonicParsing="true" styleClass="menu_items" text="_Delete        Ctrl+D" />
-                        <MenuItem fx:id="ClearItem" mnemonicParsing="false" styleClass="menu_items" text="Clea_r        Ctrl+R" />
-                        <MenuItem fx:id="CopyItem" mnemonicParsing="false" styleClass="menu_items" text="_Copy       Ctrl+C" />
-                     </items>
-                  </Menu>
-                        <Menu mnemonicParsing="false" styleClass="menu_options" text="Theme">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#lightTheme" styleClass="menu_items" text="LIGHT THEME" />
-                                <MenuItem mnemonicParsing="false" onAction="#darkTheme" styleClass="menu_items" text="DARK THEME" />
-                            </items>
-                        </Menu>
-                        <Menu mnemonicParsing="false" styleClass="menu_options" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" onAction="#displayAbout" styleClass="menu_items" text="Help" />
-                        <MenuItem mnemonicParsing="false" onAction="#displayAbout" styleClass="menu_items" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
+                <VBox>
+                    <MenuBar fx:id="menuBar" prefHeight="28.0" prefWidth="913.0" styleClass="menu_bar" BorderPane.alignment="CENTER">
+                        <menus>
+                            <Menu mnemonicParsing="false" styleClass="menu_options" text="File">
+                                <items>
+                                    <MenuItem fx:id="newItem" mnemonicParsing="false" onAction="#addRecord" styleClass="menu_items" text="New" />
+                                    <MenuItem fx:id="ChangePic" mnemonicParsing="false" onAction="#showImage" styleClass="menu_items" text="Change Pic" />
+                                    <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOut" styleClass="menu_items" text="Log out" />
+                                    <MenuItem mnemonicParsing="false" onAction="#closeApplication" styleClass="menu_items" text="Exit Program" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" styleClass="menu_options" text="Edit">
+                                <items>
+                                    <MenuItem fx:id="editItem" mnemonicParsing="true" styleClass="menu_items" text="_Edit       Ctrl+E" />
+                                    <MenuItem fx:id="deleteItem" mnemonicParsing="true" styleClass="menu_items" text="_Delete        Ctrl+D" />
+                                    <MenuItem fx:id="ClearItem" mnemonicParsing="false" styleClass="menu_items" text="Clea_r        Ctrl+R" />
+                                    <MenuItem fx:id="CopyItem" mnemonicParsing="false" styleClass="menu_items" text="_Copy       Ctrl+C" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" styleClass="menu_options" text="Data">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#importCSV" styleClass="menu_items" text="Import CSV" />
+                                    <MenuItem mnemonicParsing="false" onAction="#exportCSV" styleClass="menu_items" text="Export CSV" />
+                                    <SeparatorMenuItem />
+                                    <MenuItem mnemonicParsing="false" onAction="#showStatistics" styleClass="menu_items" text="Statistics" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" styleClass="menu_options" text="Theme">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#lightTheme" styleClass="menu_items" text="LIGHT THEME" />
+                                    <MenuItem mnemonicParsing="false" onAction="#darkTheme" styleClass="menu_items" text="DARK THEME" />
+                                    <MenuItem mnemonicParsing="false" onAction="#academicTheme" styleClass="menu_items" text="ACADEMIC THEME" />
+                                </items>
+                            </Menu>
+                            <Menu mnemonicParsing="false" styleClass="menu_options" text="Help">
+                                <items>
+                                    <MenuItem mnemonicParsing="false" onAction="#displayAbout" styleClass="menu_items" text="Help" />
+                                    <MenuItem mnemonicParsing="false" onAction="#displayAbout" styleClass="menu_items" text="About" />
+                                </items>
+                            </Menu>
+                        </menus>
+                    </MenuBar>
+                    <HBox spacing="10" styleClass="search-box">
+                        <padding>
+                            <Insets top="5" right="10" bottom="5" left="10"/>
+                        </padding>
+                        <Label text="Search:" styleClass="search-label"/>
+                        <TextField fx:id="searchField" prefWidth="300" promptText="Search by name, email, major..."/>
+                    </HBox>
+                </VBox>
             </top>
             <left>
                 <VBox prefHeight="540.0" prefWidth="132.0" styleClass="left_pane" BorderPane.alignment="CENTER">
@@ -69,9 +89,14 @@
                 </VBox>
             </left>
             <bottom>
-                <HBox prefHeight="30.0" prefWidth="892.0" styleClass="admin_section" BorderPane.alignment="CENTER" />
+                <HBox prefHeight="30.0" prefWidth="892.0" styleClass="status-bar" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets top="5" right="10" bottom="5" left="10"/>
+                    </padding>
+                    <Label fx:id="statusLabel" text="Ready" styleClass="status-message"/>
+                </HBox>
             </bottom>
-         <right>
+            <right>
                 <VBox prefHeight="540.0" prefWidth="202.0" styleClass="text_field_pane" BorderPane.alignment="CENTER">
                     <children>
                         <TextField fx:id="first_name" promptText="First Name" styleClass="text_field">
@@ -89,11 +114,11 @@
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </TextField>
-                        <TextField fx:id="major" promptText="Major" styleClass="text_field">
+                        <ComboBox fx:id="majorComboBox" prefWidth="180.0" promptText="Select Major" styleClass="text_field">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
-                        </TextField>
+                        </ComboBox>
                         <TextField fx:id="email" promptText="Email" styleClass="text_field">
                             <VBox.margin>
                                 <Insets left="10.0" right="10.0" top="5.0" />
@@ -104,35 +129,31 @@
                                 <Insets left="10.0" right="10.0" top="5.0" />
                             </VBox.margin>
                         </TextField>
-                  <Label prefHeight="6.0" prefWidth="3.0" text=" ">
-                     <VBox.margin>
-                        <Insets bottom="40.0" right="20.0" top="40.0" />
-                     </VBox.margin>
-                  </Label>
+
                         <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#clearForm" styleClass="db_btn" text="Clear">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addNewRecord" styleClass="db_btn" text="Add">
+                        <Button fx:id="addButton" mnemonicParsing="false" onAction="#addNewRecord" styleClass="db_btn" text="Add">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#deleteRecord" styleClass="db_btn" text="Delete">
+                        <Button fx:id="editButton" mnemonicParsing="false" onAction="#editRecord" styleClass="db_btn" text="Edit">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#editRecord" styleClass="db_btn" text="Edit">
+                        <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteRecord" styleClass="db_btn" text="Delete">
                             <VBox.margin>
                                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                             </VBox.margin>
                         </Button>
                     </children>
                 </VBox>
-         </right>
-         <center>
+            </right>
+            <center>
                 <TableView fx:id="tv" onMouseClicked="#selectedItemTV" prefHeight="539.0" prefWidth="566.0" styleClass="table_view" BorderPane.alignment="CENTER">
                     <columns>
                         <TableColumn fx:id="tv_id" prefWidth="42.0" styleClass="table_columns" text="ID" />
@@ -143,10 +164,10 @@
                         <TableColumn fx:id="tv_email" prefWidth="111.0" styleClass="table_columns" text="Email" />
                     </columns>
                 </TableView>
-         </center>
-         <padding>
-            <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-         </padding>
+            </center>
+            <padding>
+                <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+            </padding>
         </BorderPane>
     </children>
 </AnchorPane>

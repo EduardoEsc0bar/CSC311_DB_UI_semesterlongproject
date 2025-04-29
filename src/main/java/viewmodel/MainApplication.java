@@ -19,15 +19,15 @@ public class MainApplication extends Application {
     public static void main(String[] args) {
         cnUtil = new DbConnectivityClass();
         launch(args);
-
     }
 
     public void start(Stage primaryStage) {
-        Image icon = new Image(getClass().getResourceAsStream("/images/DollarClouddatabase.png"));
+        // Load the application icon from resources
+        Image icon = new Image(getClass().getResourceAsStream("/images/academic_hub_logo.png"));
         this.primaryStage = primaryStage;
         this.primaryStage.setResizable(false);
         primaryStage.getIcons().add(icon);
-        primaryStage.setTitle("FSC CSC311 _ Database Project");
+        primaryStage.setTitle("Academic Hub - Faculty & Student Management");
         showScene1();
     }
 
@@ -35,7 +35,7 @@ public class MainApplication extends Application {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/view/splashscreen.fxml"));
             Scene scene = new Scene(root, 900, 600);
-            scene.getStylesheets().add(getClass().getResource("/css/lightTheme.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/css/academicTheme.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
             changeScene();
@@ -49,12 +49,13 @@ public class MainApplication extends Application {
             Parent newRoot = FXMLLoader.load(getClass().getResource("/view/login.fxml").toURI().toURL());
             Scene currentScene = primaryStage.getScene();
             Parent currentRoot = currentScene.getRoot();
-            currentScene.getStylesheets().add(getClass().getResource("/css/lightTheme.css").toExternalForm());
+            currentScene.getStylesheets().add(getClass().getResource("/css/academicTheme.css").toExternalForm());
             FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), currentRoot);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
             fadeOut.setOnFinished(e -> {
                 Scene newScene = new Scene(newRoot, 900, 600);
+                newScene.getStylesheets().add(getClass().getResource("/css/academicTheme.css").toExternalForm());
                 primaryStage.setScene(newScene);
                 primaryStage.show();
             });
@@ -63,6 +64,4 @@ public class MainApplication extends Application {
             e.printStackTrace();
         }
     }
-
-
 }

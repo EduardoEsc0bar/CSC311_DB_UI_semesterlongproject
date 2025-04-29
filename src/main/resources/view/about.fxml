@@ -2,20 +2,37 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" styleClass="about-pane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea layoutX="6.0" layoutY="51.0" prefHeight="343.0" prefWidth="584.0" text="Your text goes here " wrapText="true">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </TextArea>
-      <Label alignment="TOP_LEFT" layoutX="8.0" layoutY="11.0" prefHeight="44.0" prefWidth="542.0" text="Developer: MM mM">
-         <font>
-            <Font name="System Bold" size="26.0" />
-         </font>
-      </Label>
+      <VBox alignment="TOP_CENTER" layoutX="6.0" layoutY="5.0" prefHeight="490.0" prefWidth="588.0" spacing="15.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="44.0" prefWidth="588.0" styleClass="header-label" text="Academic Hub">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="30.0" prefWidth="588.0" styleClass="sub-header" text="Faculty &amp; Student Management System">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/academic_hub_logo.png" />
+               </image>
+            </ImageView>
+            <TextArea editable="false" prefHeight="272.0" prefWidth="588.0" styleClass="about-text" text="Academic Hub is a comprehensive faculty and student management system designed to streamline administrative tasks in educational institutions.&#10;&#10;Features:&#10;• Student and faculty record management&#10;• Search functionality across all fields&#10;• CSV import/export capabilities&#10;• Statistical analysis and reporting&#10;• Automatic data backup&#10;• Secure user authentication&#10;&#10;Version: 1.0.0&#10;&#10;Developer: Your Name&#10;&#10;© 2025 Academic Hub. All rights reserved." wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

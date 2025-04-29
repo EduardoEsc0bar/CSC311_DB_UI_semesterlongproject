@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="365.0" prefWidth="511.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="viewmodel.SpalshScreenController">
+<VBox fx:id="contentBox" alignment="CENTER" prefHeight="600.0" prefWidth="900.0" spacing="20.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="viewmodel.SpalshScreenController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-   <children>
-      <ImageView fitHeight="316.0" fitWidth="459.0" pickOnBounds="true" preserveRatio="true"  >
-       <image>
-                <Image url="@../images/fsclogo.png" />
-       </image>
-      </ImageView>
-   </children>
+    <children>
+        <ImageView fx:id="logoImage" fitHeight="250.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" styleClass="app-logo">
+            <image>
+                <Image url="@../images/academic_hub_logo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="appTitle" styleClass="app-title" text="Academic Hub">
+            <font>
+                <Font name="System Bold" size="48.0" />
+            </font>
+        </Label>
+        <Label fx:id="appSubtitle" styleClass="app-subtitle" text="Faculty &amp; Student Management System">
+            <font>
+                <Font name="System Italic" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="welcomeText" styleClass="status-message" text="Loading...">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+    </children>
 </VBox>
